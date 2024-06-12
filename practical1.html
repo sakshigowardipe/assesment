@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>compare triplets</h1>
+    <div>
+        <label for="aliceScores">alice Scores:</label>
+        <input type="text" id="aliceScores" placeholder="e.g. 1,2,3" >
+     </div>
+     <div>
+        <label for="aliceScores">bobs Scores:</label>
+        <input type="text" id="bobsScores" placeholder="e.g. 3,2,1" >
+ 
+     </div>
+     <button onclick="compareTriplets()">compare</button>
+     <p id="result"></p>
+    <script>
+        function compareTriplets(){
+            var aliceInput=documentbyid('aliceScores').value;
+            var bobsInput=documentbyid('bobsScores').value;
+            var aliceScores=aliceInput.split(',').map(Number);
+            var bobsScores=bobsInput.split(',').map(Number);
+            var alicePoints=0;
+            var bobsPoints=0;
+            for(let i=0;i<3;i++){
+                if (aliceScores[i]>bobsScores[i]){
+                    alicePoints++;
+                }else if(aliceScores[i]<bobsScores[i]){
+                    bobsPoints++;
+                }
+                document.getElementById('result').innerHTML='alice's points:${alicePoints},bobs points: ${bobsPoints};
+            }
+        }
+
+    </script>
+</body>
+</html>
